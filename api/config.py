@@ -66,11 +66,11 @@ configs = {
 }
 
 # Get API keys from environment variables
-OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+API_KEY = os.environ.get('API_KEY')
 GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 
 # Set keys in environment (in case they're needed elsewhere in the code)
-if OPENAI_API_KEY:
-    os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+if API_KEY:
+    os.environ["API_KEY"] = API_KEY
 if GOOGLE_API_KEY:
     os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY

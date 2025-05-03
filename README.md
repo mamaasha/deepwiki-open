@@ -33,7 +33,7 @@ cd deepwiki-open
 
 # Create a .env file with your API keys
 echo "GOOGLE_API_KEY=your_google_api_key" > .env
-echo "OPENAI_API_KEY=your_openai_api_key" >> .env
+echo "API_KEY=your_API_KEY" >> .env
 
 # Run with Docker Compose
 docker-compose up
@@ -51,7 +51,7 @@ Create a `.env` file in the project root with these keys:
 
 ```
 GOOGLE_API_KEY=your_google_api_key
-OPENAI_API_KEY=your_openai_api_key
+API_KEY=your_API_KEY
 ```
 
 #### Step 2: Start the Backend
@@ -149,7 +149,7 @@ deepwiki/
 | Variable | Description | Required |
 |----------|-------------|----------|
 | `GOOGLE_API_KEY` | Google Gemini API key for AI generation | Yes |
-| `OPENAI_API_KEY` | OpenAI API key for embeddings | Yes |
+| `API_KEY` | OpenAI API key for embeddings | Yes |
 | `PORT` | Port for the API server (default: 8001) | No |
 
 ### Docker Setup
@@ -163,7 +163,7 @@ docker pull ghcr.io/asyncfuncai/deepwiki-open:latest
 # Run the container with environment variables
 docker run -p 8001:8001 -p 3000:3000 \
   -e GOOGLE_API_KEY=your_google_api_key \
-  -e OPENAI_API_KEY=your_openai_api_key \
+  -e API_KEY=your_API_KEY \
   -v ~/.adalflow:/root/.adalflow \
   ghcr.io/asyncfuncai/deepwiki-open:latest
 ```
@@ -182,7 +182,7 @@ You can also mount a .env file to the container:
 ```bash
 # Create a .env file with your API keys
 echo "GOOGLE_API_KEY=your_google_api_key" > .env
-echo "OPENAI_API_KEY=your_openai_api_key" >> .env
+echo "API_KEY=your_API_KEY" >> .env
 
 # Run the container with the .env file mounted
 docker run -p 8001:8001 -p 3000:3000 \
@@ -206,7 +206,7 @@ docker build -t deepwiki-open .
 # Run the container
 docker run -p 8001:8001 -p 3000:3000 \
   -e GOOGLE_API_KEY=your_google_api_key \
-  -e OPENAI_API_KEY=your_openai_api_key \
+  -e API_KEY=your_API_KEY \
   deepwiki-open
 ```
 
