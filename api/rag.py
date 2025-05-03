@@ -9,10 +9,10 @@ from adalflow.core.types import (
     UserQuery,
     AssistantResponse,
 )
+import os
 from adalflow.components.retriever.faiss_retriever import FAISSRetriever
 from api.config import configs
 from api.data_pipeline import DatabaseManager
-
 # Configure logging
 logging.basicConfig(
     level=logging.INFO,
@@ -130,9 +130,11 @@ class RAG(adal.Component):
         self.memory = Memory()
 
         self.embedder = adal.Embedder(
-            model_client=configs["embedder"]["model_client"](),
+            model_client=configs["embedder"]["model_client"]( 
+                api_key=os.environ["API_KEY"],
+                base_url="https://llm.api.cloud.yandex.net/v1"),
             model_kwargs=configs["embedder"]["model_kwargs"],
-        )
+            )
 
         self.initialize_db_manager()
 

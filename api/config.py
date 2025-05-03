@@ -2,13 +2,16 @@ from adalflow import GoogleGenAIClient
 from adalflow.components.model_client.openai_client import OpenAIClient
 import os
 
+fully_specified_name = "/yandexgpt/rc"
+model_name ="gpt://" + os.environ["FOLDER_ID"] + fully_specified_name
+client = OpenAIClient()
 # Configuration for the isolated API
 configs = {
     "embedder": {
         "batch_size": 500,
         "model_client": OpenAIClient,
         "model_kwargs": {
-            "model": "text-embedding-3-small",
+            "model": "emb://" +  os.environ["FOLDER_ID"] + "/text-search-doc/latest",
             "dimensions": 256,
             "encoding_format": "float",
         },
@@ -17,9 +20,9 @@ configs = {
         "top_k": 20,
     },
     "generator": {
-        "model_client": GoogleGenAIClient,
+        "model_client": OpenAIClient,
         "model_kwargs": {
-            "model": "gemini-2.5-flash-preview-04-17",
+            "model": model_name,
             "temperature": 0.7,
             "top_p": 0.8,
         },
@@ -66,11 +69,11 @@ configs = {
 }
 
 # Get API keys from environment variables
-OPENAI_API_KEY = os.environ.get('OPENAI_API_KEY')
+OPENAI_API_KEY = os.environ.get('API_KEY')
 GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 
 # Set keys in environment (in case they're needed elsewhere in the code)
 if OPENAI_API_KEY:
-    os.environ["OPENAI_API_KEY"] = OPENAI_API_KEY
+    os.environ["API_KEY"] = OPENAI_API_KEY
 if GOOGLE_API_KEY:
     os.environ["GOOGLE_API_KEY"] = GOOGLE_API_KEY

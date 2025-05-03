@@ -12,7 +12,7 @@ def test_streaming_endpoint(repo_url, query, file_path=None):
         file_path (str, optional): Path to a file in the repository
     """
     # Define the API endpoint
-    url = "http://localhost:8000/chat/completions/stream"
+    url = "http://localhost:8001/chat/completions/stream"
     
     # Define the request payload
     payload = {
