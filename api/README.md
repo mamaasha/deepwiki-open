@@ -25,7 +25,7 @@ Create a `.env` file in the project root:
 
 ```
 GOOGLE_API_KEY=your_google_api_key  # For AI generation
-OPENAI_API_KEY=your_openai_api_key  # For embeddings
+API_KEY=your_API_KEY  # For embeddings
 PORT=8001  # Optional, defaults to 8001
 ```
 

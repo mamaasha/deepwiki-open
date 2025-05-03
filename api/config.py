@@ -11,9 +11,10 @@ configs = {
         "batch_size": 500,
         "model_client": OpenAIClient,
         "model_kwargs": {
+            "model_uri": f"emb://{os.getenv('FOLDER_ID')}/text-search-doc/latest",
             "model": "emb://" +  os.environ["FOLDER_ID"] + "/text-search-doc/latest",
             "dimensions": 256,
-            "encoding_format": "float",
+            "api_key" : os.getenv('API_KEY')
         },
     },
     "retriever": {
@@ -70,6 +71,7 @@ configs = {
 
 # Get API keys from environment variables
 OPENAI_API_KEY = os.environ.get('API_KEY')
+API_KEY = os.environ.get('API_KEY')
 GOOGLE_API_KEY = os.environ.get('GOOGLE_API_KEY')
 
 # Set keys in environment (in case they're needed elsewhere in the code)
