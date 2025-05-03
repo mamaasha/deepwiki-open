@@ -8,9 +8,9 @@ configs = {
         "batch_size": 500,
         "model_client": OpenAIClient,
         "model_kwargs": {
-            "model": "text-embedding-3-small",
+            "model_uri": f"emb://{os.getenv('FOLDER_ID')}/text-search-doc/latest",
             "dimensions": 256,
-            "encoding_format": "float",
+            "api_key" : os.getenv('API_KEY')
         },
     },
     "retriever": {
