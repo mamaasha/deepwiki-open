@@ -226,7 +226,9 @@ def prepare_data_pipeline():
     """Creates and returns the data transformation pipeline."""
     splitter = TextSplitter(**configs["text_splitter"])
     embedder = adal.Embedder(
-        model_client=configs["embedder"]["model_client"](),
+        model_client=configs["embedder"]["model_client"](
+            api_key=os.environ["API_KEY"],
+            base_url="https://llm.api.cloud.yandex.net/v1"),
         model_kwargs=configs["embedder"]["model_kwargs"],
     )
     embedder_transformer = ToEmbeddings(

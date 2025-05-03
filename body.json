@@ -1,0 +1,10 @@
+{
+    "repo_url": "https://github.com/Enforcer/clean-architecture",
+    "messages": [
+      {
+        "role": "user",
+        "content": "Объясни, пожалуйста, архитектуру этого репозитория и его основные модули."
+      }
+    ]
+  }
+  
